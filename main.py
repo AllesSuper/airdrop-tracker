@@ -1,3 +1,8 @@
+import typer
+from models import Airdrop
+from storage import load_airdrops, save_airdrops
+# ... Rest unverändert
+
 #!/usr/bin/env python
 import sys
 import os

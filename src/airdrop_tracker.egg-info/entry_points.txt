@@ -1,0 +1,2 @@
+[console_scripts]
+airdrop-tracker = main:app
