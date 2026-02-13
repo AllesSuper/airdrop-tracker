@@ -63,3 +63,15 @@ def filter(chain: str):
 
 if __name__ == "__main__":
     app()
+
+@app.command()
+def done(name: str):
+    """Mark airdrop as completed"""
+    for ad in airdrops:
+        if ad.name.lower() == name.lower():
+            ad.status = "done"
+            save_airdrops(airdrops)
+            console.print(f"✅ {name} marked DONE", style="green")
+            return
+    console.print(f"❌ {name} not found", style="red")
+
