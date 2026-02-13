@@ -47,6 +47,19 @@ def list_all():
     for ad in airdrops:
         table.add_row(ad.name, ad.chain, ad.deadline, ad.status)
     console.print(table)
+@app.command()
+def filter(chain: str):
+    """Filter airdrops by chain"""
+    filtered = [ad for ad in airdrops if chain.lower() in ad.chain.lower()]
+    if not filtered:
+        console.print(f"❌ No {chain} airdrops", style="red")
+        return
+    table = Table(title=f"{chain} Airdrops")
+    table.add_column("Name", style="cyan")
+    table.add_column("Deadline")
+    for ad in filtered:
+        table.add_row(ad.name, ad.deadline)
+    console.print(table)
 
 if __name__ == "__main__":
     app()
