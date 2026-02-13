@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "airdrop-tracker"
+version = "0.1.0"
+description = "Simple CLI to track crypto airdrops"
+dependencies = [
+    "typer",
+    "pydantic",
+    "rich",
+]
+
+[project.scripts]
+airdrop-tracker = "src.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
